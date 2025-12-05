@@ -202,10 +202,10 @@ npm start
 
 # Future Improvements
 
-Add user authentication
-Add reminders/notifications
-Add project categories
-Support longer audio files
+* Add user authentication
+* Add reminders/notifications
+* Add project categories
+* Support longer audio files
 
 ---
 
