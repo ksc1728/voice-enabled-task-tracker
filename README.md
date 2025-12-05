@@ -33,7 +33,7 @@ Users can:
 2. **Transcribe Locally**
     Uses browser Web Speech API
     Works offline (no backend).
-    Still sent to GPT for task extraction.
+    Still sent to Deepgram for task extraction.
 
 ### **Task Management**
 
@@ -47,7 +47,7 @@ Users can:
 **Frontend:** React, DnD-Kit, Axios
 **Backend:** Node.js, Express, Multer, Deepgram API, Mongoose
 **Database:** MongoDB Atlas
-**AI:** GPT task extraction
+**AI:** AI task extraction
 
 ---
 
@@ -59,7 +59,7 @@ project/
 |- backend/
 │   |- routes/
 │   │   |- tasks.js          # CRUD routes for tasks
-│   │   |- voice.js          # Whisper transcription + GPT parsing
+│   │   |- voice.js          # Deepgram API
 │   │   |- sttRoutes.js      # Additional speech-to-text route
 │   │
 │   |- models/
@@ -139,7 +139,7 @@ Recorder in `Recorder.js` captures audio using MediaRecorder API -> sends `.webm
 * Sends to Deepgram
 * Receives transcript
 
-### **3. GPT extracts task data**
+### **3. AI extracts task data**
 
 `extractTaskFromTranscript()` transforms raw voice text into:
 
