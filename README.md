@@ -8,7 +8,7 @@ Users can:
 * Add tasks manually
 * Drag & drop tasks across columns (TODO -> IN PROGRESS -> DONE)
 * Transcribe voice locally (browser Web Speech API)
-* Upload audio to backend for Whisper transcription
+* Upload audio to backend for Deepgram transcription
 
 ---
 
