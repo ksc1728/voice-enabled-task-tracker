@@ -17,7 +17,7 @@ Users can:
 ### **Voice Enabled Task Tracker**
 
 * Record audio
-* Whisper transcribes
+* audio transcribes
 * GPT extracts structured task fields:
 
   * Title
