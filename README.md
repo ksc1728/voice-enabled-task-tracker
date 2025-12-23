@@ -4,6 +4,7 @@ A full-stack MERN application that converts **voice commands into structured tas
 
 Users can:
 
+* Sign up -> User tasks
 * Record audio -> AI transcribes -> AI extracts structured task details
 * Add tasks manually
 * Drag & drop tasks across columns (TODO -> IN PROGRESS -> DONE)
@@ -16,8 +17,9 @@ Users can:
 
 ### **Voice Enabled Task Tracker**
 
+* Authentication & authorization (JWT + bcrypt)
 * Record audio
-* audio transcribes
+* Audio transcribes
 * GPT extracts structured task fields:
 
   * Title
@@ -49,51 +51,6 @@ Users can:
 **Database:** MongoDB Atlas
 **AI:** AI task extraction
 
----
-
-# Project Structure
-
-```
-project/
-│
-|- backend/
-│   |- routes/
-│   │   |- tasks.js          # CRUD routes for tasks
-│   │   |- voice.js          # Deepgram API
-│   │   |- sttRoutes.js      # Additional speech-to-text route
-│   │
-│   |- models/
-│   │   |- Task.js           # Mongoose schema
-│   │
-│   |- services/
-│   │   |- deepgram.js         # Task extraction using AI
-│   │   |- parser.js         # Backup parser if AI fails
-│   │   |- stt.js            # Alternative speech-to-text service
-│   │
-│   |- src/
-│   │   |- app.js            # Express server entry + middleware
-│   │
-│   |- .env                  # Backend environment variables
-│   |- package.json
-│
-|- frontend/
-    |- src/
-    │   |- api.js            # Axios API calls to backend
-    │   |- App.js            # Main application logic
-    │   |- components/
-    │   │   |- Recorder.js      # Audio recording logic
-    │   │   |- TaskBoard.js     # Kanban board
-    │   │   |- TaskForm.js      # Manual task creation form
-    │   │   |- TaskModal.js     # Voice task confirmation popup
-    │   │   |- DroppableColumn.js
-    │   |   |- SortableTask.js  # Drag-and-drop task card 
-    │   |- index.js
-    │
-    |- .env                  # Frontend API base URL
-    |- package.json
-```
-
----
 
 # Environment Variables
 
@@ -103,6 +60,7 @@ project/
 MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/aerchain
 DEEPGRAM_API_KEY=your_deepgram_api_key
 PORT=5000
+JWT_SECRET=your_jwt_key
 ```
 
 
@@ -202,14 +160,13 @@ npm start
 
 # Future Improvements
 
-* Add user authentication
 * Add reminders/notifications
 * Add project categories
 * Support longer audio files
 
 ---
 
-# Final Notes
+# About Web application
 
 This app demonstrates integration of:
 
