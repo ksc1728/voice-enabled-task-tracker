@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { transcribeFileWithDeepgram, extractTaskFromTranscript } = require('../services/deepgram');
 const { parseTranscript } = require('../services/parser');
+const auth = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ if (!fs.existsSync(TMP_DIR)) fs.mkdirSync(TMP_DIR, { recursive: true });
 
 const upload = multer({ dest: TMP_DIR });
 
-router.post('/transcribe', upload.single('file'), async (req, res) => {
+router.post('/transcribe', auth, upload.single('file'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'Audio file required' });
 
@@ -71,7 +72,7 @@ router.post('/transcribe', upload.single('file'), async (req, res) => {
  * POST /api/voice/parse
  * Parse text transcript -> task extraction (for Web Speech API)
  */
-router.post('/parse', async (req, res) => {
+router.post('/parse',auth, async (req, res) => {
   try {
     const { transcript } = req.body;
     if (!transcript) return res.status(400).json({ error: 'Transcript required' });

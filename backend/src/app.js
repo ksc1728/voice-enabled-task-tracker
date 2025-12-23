@@ -5,6 +5,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const tasksRoute = require('./routes/tasks');
 const voiceRoute = require('./routes/voice');
+const authRoute = require("./routes/auth");
+
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -16,6 +18,7 @@ app.use(bodyParser.json());
 app.use('/api/tasks', tasksRoute);
 app.use('/api/voice', voiceRoute);
 app.use("/api", require("./routes/sttRoutes"));
+app.use("/api/auth", authRoute);
 
 
 async function start() {
